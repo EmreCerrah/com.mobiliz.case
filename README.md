@@ -1,21 +1,13 @@
-# River Restaurant Menu
+# Mobiliz Case
 
-I made this project with [Reactstrap](https://reactstrap.github.io), using the [redux](https://redux.js.org/) and [jsonbin](https://jsonbin.io). I coded to improve myself. I used to jsonbin for api that i was made it.
+I made this project with [Reactstrap](https://reactstrap.github.io), using the [redux](https://redux.js.org/) . I coded for job application to Mobiliz.
 
-## Live Demo
-
-[River Restaurant](https://riversmenu.netlify.app/)
 
 ## Technologies
 
 - React.js
 - Bootstrap
 - Reactstrap
-- Jsonbin
-
-## Special Thanks
-
-- [Engin Demiroğ](https://www.youtube.com/channel/UCRjiquPh4mjPNoOV9eCilXQ/featured) for his lessons
 
 ## Available Scripts
 
@@ -66,4 +58,3 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 Getting Started with [Redux](https://redux.js.org/introduction/getting-started).
 
-[BINS API](https://jsonbin.io/api-reference).

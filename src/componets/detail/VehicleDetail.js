@@ -25,22 +25,32 @@ class VehicleDetail extends Component {
   }
 
   handleSubmit = (event) => {
-    
     if (window.confirm(`${this.state.plate} Plakalı Aracı Kaydetmek İstiyor Musunuz?`)) {
-      this.savedVehicle()
+      this.savedVehicle(this.state.id,this.state.brand,this.state.plate,this.state.model,this.state.modelYear,this.state.notes)
+      event.preventDefault()
     }else {
       event.preventDefault()
     }
   }
-  savedVehicle(){
+  savedVehicle(id,brand,plate,model,modelYear,notes){
+    const vehicle= {
+      id:this.id,
+      plate:this.plate,
+      brand:this.brand,
+      model:this.model,
+      modelYear:this.modelYear,
+      notes:this.notes
+    }
 
+    this.props.actions.postVehicle(vehicle)
 
   }
 
   renderCreate() {
     return (
       <div>
-        <Form onSubmit = {this.handleSubmit} >        
+        <Form onSubmit = {this.handleSubmit} > 
+
         <Label htmlFor={this.props.selectedVehicle.id}>Araç No :</Label>
         <Input
           name="id"
@@ -54,7 +64,7 @@ class VehicleDetail extends Component {
         <Input
           name="plate"
           placeholder=""
-          value={this.props.selectedVehicle.plate}
+          Value={this.props.selectedVehicle.plate}
           type="text"
           onChange={this.onChangeHandler}
         />
@@ -63,7 +73,7 @@ class VehicleDetail extends Component {
         <Input
           name="brand"
           placeholder=""
-          value={this.props.selectedVehicle.brand}
+          Value={this.props.selectedVehicle.brand}
           type="text"
           onChange={this.onChangeHandler}
         />
@@ -72,7 +82,7 @@ class VehicleDetail extends Component {
         <Input
           name="model"
           placeholder=""
-          value={this.props.selectedVehicle.model}
+          Value={this.props.selectedVehicle.model}
           type="text"
           onChange={this.onChangeHandler}
         />
@@ -83,7 +93,7 @@ class VehicleDetail extends Component {
         <Input
           name="modelYear"
           placeholder=""
-          value={this.props.selectedVehicle.modelYear}
+          Value={this.props.selectedVehicle.modelYear}
           type="text"
           onChange={this.onChangeHandler}
         />
@@ -92,7 +102,7 @@ class VehicleDetail extends Component {
         <Input
           name="notes"
           placeholder=""
-          value={this.props.selectedVehicle.notes}
+          Value={this.props.selectedVehicle.notes}
           type="textarea"
           onChange={this.onChangeHandler}
         />
@@ -120,6 +130,7 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       selectVehicle: bindActionCreators(detailActions.selectVehicle, dispatch),
+      postVehicle:bindActionCreators(detailActions.postVehicle, dispatch)
     },
   };
 }
