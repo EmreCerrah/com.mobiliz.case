@@ -5,7 +5,7 @@ export default {
 
   selectedVehicle:{},
 
-  savedProduct:{},
+  savedVehicle:{},
   
 
 }

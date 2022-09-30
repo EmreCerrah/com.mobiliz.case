@@ -57,7 +57,6 @@ class VehiclesList extends Component {
                       Detay
                     </Button>
                     </Link>
-                    <div style={{ display: "none" }}></div>
                   </td>
                 </tr>
               ))}

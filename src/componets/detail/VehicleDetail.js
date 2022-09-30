@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as detailActions from "../../redux/actions/detailActions";
 import { Label, Button, InputGroup, InputGroupText, Input, Form, NavItem } from "reactstrap";
-import { ToastContainer, toast } from "react-toastify";
-import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 class VehicleDetail extends Component {
 
   state={
@@ -96,12 +96,12 @@ class VehicleDetail extends Component {
           type="textarea"
           onChange={this.onChangeHandler}
         />
-
-        <Button color="danger">Kapat</Button>
         <Button type ='submit' onClick={ this.handleSubmit} color="success">Kaydet</Button>
-        <Button color="warning">Bul!</Button>
+        <Link style={{ textDecoration: "none" }} to={"/"}>
+           <Button color="danger">Kapat</Button>
+        </Link>
         </Form>
-
+        <Button color="warning">Bul!</Button>
       </div>
     );
   }

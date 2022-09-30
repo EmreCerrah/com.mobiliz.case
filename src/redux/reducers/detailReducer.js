@@ -9,6 +9,9 @@ export default function detailReducer(
     case actionTypes.SELECT_VEHICLES:
       return action.payload;
 
+    case actionTypes.SAVE_VEHICLE_SUCCESS:
+      return action.payload;
+  
     default:
       return state;
   }
