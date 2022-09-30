@@ -1,6 +1,6 @@
 # Mobiliz Case
 
-I made this project with [Reactstrap](https://reactstrap.github.io), using the [redux](https://redux.js.org/) . I coded for job application to Mobiliz.
+I made this project with [Reactstrap](https://reactstrap.github.io), using the [redux](https://redux.js.org/) . I coded for job application to [Mobiliz](https://mobiliz.com.tr/).
 
 
 ## Technologies

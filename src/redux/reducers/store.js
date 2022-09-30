@@ -7,7 +7,5 @@ export const store = configureStore({
     detailReducer,
     modelsListReducer,
     vehiclesListReducer,
-   
   },
-
 });

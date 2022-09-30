@@ -5,27 +5,23 @@ import { Badge, Button, Table } from "reactstrap";
 import { bindActionCreators } from "redux";
 import * as vehiclesActions from "../../redux/actions/vehiclesActions";
 import * as detailActions from "../../redux/actions/detailActions";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class VehiclesList extends Component {
   componentDidMount() {
     this.props.actions.getVehicles();
   }
 
-  goDetail(vehicle  ){
-    this.props.actions.selectVehicle(vehicle)
-    console.log(this.props.selectedVehicle)
-
+  goDetail(vehicle) {
+    this.props.actions.selectVehicle(vehicle);
+    console.log(this.props.selectedVehicle);
   }
-  
 
   render() {
-  
     return (
       <div>
         <h4>
-          <Badge color="warning">Araçlar</Badge>
-          <Badge color="success">{/* buraya model gelicek  */}</Badge>
+          <Badge color="success">Araçlar</Badge>
         </h4>
 
         <div className="d-flex align-content-center flex-wrap ">
@@ -47,15 +43,16 @@ class VehiclesList extends Component {
                   <td>{vehicle.model}</td>
                   <td>{vehicle.modelYear}</td>
                   <td>
-                  <Link style={{ textDecoration: "none" }} to={`detail/${vehicle.id}`}>
-                
-              
-                    <Button
-                      color="danger"
-                      onClick={() => this.goDetail(vehicle)}
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      to={`detail/${vehicle.id}`}
                     >
-                      Detay
-                    </Button>
+                      <Button
+                        color="danger"
+                        onClick={() => this.goDetail(vehicle)}
+                      >
+                        Detay
+                      </Button>
                     </Link>
                   </td>
                 </tr>
@@ -63,7 +60,6 @@ class VehiclesList extends Component {
             </tbody>
           </Table>
         </div>
-
       </div>
     );
   }

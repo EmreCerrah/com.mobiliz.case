@@ -12,7 +12,7 @@ class ModelsList extends Component {
   }
 
   state = {
-    modele: null,
+    modele: "",
   };
   selectedModel() {
     this.props.actions.getVehicles(this.state.modele);
