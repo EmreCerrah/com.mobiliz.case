@@ -15,6 +15,10 @@ class VehicleDetail extends Component {
     notes: "",
   };
 
+  componentDidMount(){
+    
+  }
+
   onChangeHandler = (event) => {
     let name = event.target.name;
     let value = event.target.value;
@@ -54,7 +58,7 @@ class VehicleDetail extends Component {
     this.props.actions.postVehicle(vehicle);
   }
 
-  renderCreate() {
+  render() {
     return (
       <div>
         <Form onSubmit={this.handleSubmit}>
@@ -120,17 +124,13 @@ class VehicleDetail extends Component {
             <Button color="danger">Kapat</Button>
           </Link>
         </Form>
-        <Button color="warning">Bul!</Button>
       </div>
     );
   }
-
-  render() {
-    return <div>{this.renderCreate()}</div>;
-  }
 }
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   return {
+    //id:ownProps.params.id;
     selectedVehicle: state.detailReducer,
   };
 }

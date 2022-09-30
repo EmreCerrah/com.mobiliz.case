@@ -26,7 +26,7 @@ class ModelsList extends Component {
     return (
       <div>
         <h4>
-          <Badge color="warning">Filtrele</Badge>
+          <Badge color="success">Filtrele</Badge>
         </h4>
         <Card
           className="my-2"
