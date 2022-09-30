@@ -9,14 +9,24 @@ import {
   Button,
   InputGroup,
 } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory  } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as detailActions from "../../redux/actions/detailActions";
 
-export default class Navi extends Component {
+class Navi extends Component {
   state = {
     plaka: "",
+    id:""
   };
 
-  findPlate(plateNo) {}
+  findPlate(plateNo) {
+  
+    const searchedVehicle=this.props.vehicles.find(v =>v.plate===plateNo)
+    console.log(searchedVehicle)
+    this.props.actions.selectVehicle(searchedVehicle)
+    this.state.id=searchedVehicle.id;
+  }
 
   render() {
     return (
@@ -42,19 +52,18 @@ export default class Navi extends Component {
             <NavItem>
               <InputGroup>
                 <Input
-                  placeholder="Plaka Ara"
+                  placeholder="Plaka Ara: 00 ÖRN 001"
                   type="search"
                   value={this.value}
                   onChange={(e) => (this.state.plaka = e.target.value)}
-                />
+                /> <Link style={{ textDecoration: "none" }} to={`/detail/${this.id}`}>
                 <Button
                   color="success"
-                  onClick={(e) => {
-                    console.log(this.state.plaka);
-                  }}
+                  onClick={() => {
+                    this.findPlate(this.state.plaka);  }}
                 >
                   Ara!
-                </Button>
+                </Button> </Link>
               </InputGroup>
             </NavItem>
           </Nav>
@@ -63,3 +72,21 @@ export default class Navi extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    selectedVehicle: state.detailReducer,
+    vehicles: state.vehiclesListReducer,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: {
+     // getVehicles: bindActionCreators(vehiclesActions.getVehicles, dispatch),
+     selectVehicle: bindActionCreators(detailActions.selectVehicle, dispatch),
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navi);

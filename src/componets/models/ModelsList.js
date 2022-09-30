@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Card, Label, Input, Button } from "reactstrap";
 import { bindActionCreators } from "redux";
-import * as categoryActions from "../../redux/actions/modelActions";
+import * as modelActions from "../../redux/actions/modelActions";
 import { Badge, FormGroup, CardHeader } from "reactstrap";
-import * as productActions from "../../redux/actions/vehiclesActions";
+import * as vehiclesActions from "../../redux/actions/vehiclesActions";
 
 class ModelsList extends Component {
   componentDidMount() {
@@ -66,8 +66,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: {
-      getModels: bindActionCreators(categoryActions.getModels, dispatch),
-      getVehicles: bindActionCreators(productActions.getVehicles, dispatch),
+      getModels: bindActionCreators(modelActions.getModels, dispatch),
+      getVehicles: bindActionCreators(vehiclesActions.getVehicles, dispatch),
     },
   };
 }
